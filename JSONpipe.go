@@ -37,7 +37,12 @@ func Handle(action string, handler Handler) {
 		panic("jsonstream: nil handler")
 	}
 
-	//	TODO: check for already created entry
+	//	check for an already created entry
+	if _, ok := Pipe.actions[action]; ok {
+		panic("jsonstream: action " + action + " already exists")
+	}
+
+	//	register the action in our map
 	Pipe.actions[action] = Action{pattern: action, h: handler}
 }
 
