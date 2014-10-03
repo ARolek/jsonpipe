@@ -11,7 +11,8 @@ import (
 )
 
 const (
-	MaxScanTokenSize = 64 * 1024
+	//	4 megabytes
+	MaxScanTokenSize = 4 * 1024 * 1024
 )
 
 type Server struct {
